@@ -31,7 +31,7 @@ class App extends Component {
       const sampleExtToken = new web3.eth.Contract(DappSampleExtractionToken.abi, sampleExtractionTokenData.address);
       this.setState({ sampleExtToken });
       let sampleExtTokenBalance = await sampleExtToken.methods.balanceOf(this.state.account).call();
-      this.setState({ daiTokenBalance: sampleExtTokenBalance.toString() })
+      this.setState({ sampleExtTokenBalance: sampleExtTokenBalance.toString() })
     } else {
       window.alert('DappSampleExtractionToken contract not deployed to detected network.')
     }
@@ -85,8 +85,6 @@ class App extends Component {
     if(sampleTokenFarmData) {
       const tokenFarm = new web3.eth.Contract(SampleTokenFarm.abi, sampleTokenFarmData.address);
       this.setState({ tokenFarm });
-      let stakingBalance = await tokenFarm.methods.stakingBalance(this.state.account).call();
-      this.setState({ stakingBalance: stakingBalance.toString() })
     } else {
       window.alert('TokenFarm contract not deployed to detected network.')
     }
@@ -167,6 +165,7 @@ class App extends Component {
       sampleUnboxingTokenBalance: '0',
       sampleAnalysisTokenBalance: '0',
       sampleReadyTokenBalance: '0',
+      stakingBalance: '0',
       loading: true
     }
   }
@@ -182,6 +181,7 @@ class App extends Component {
         sampleUnboxingTokenBalance={this.state.sampleUnboxingTokenBalance}
         sampleAnalysisTokenBalance={this.state.sampleAnalysisTokenBalance}
         sampleReadyTokenBalance={this.state.sampleReadyTokenBalance}
+        tokenFarm={this.state.tokenFarm}
         stakeTokens={this.stakeTokens}
       />
     }
