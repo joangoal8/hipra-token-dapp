@@ -105,41 +105,42 @@ class App extends Component {
     }
   }
 
-  stakeTokens = (step) => {
+  stakeTokens = (sender, option) => {
     this.setState({ loading: true });
     let amount = window.web3.utils.toWei('1', 'Ether');
-    switch (step) {
-      case '0':
-        this.state.sampleExtToken.methods.approve(this.state.tokenFarm._address, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-          this.state.tokenFarm.methods.stakeTokens(step).send({ from: this.state.account }).on('transactionHash', (hash) => {
+    console.log(sender);
+    switch (option) {
+      case 'extraction':
+        this.state.sampleExtToken.methods.approve(sender, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
+          this.state.sampleExtToken.methods.transfer(sender, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
             this.setState({ loading: false })
           })
         });
         break;
-      case '1':
-        this.state.sampleTransportToken.methods.approve(this.state.tokenFarm._address, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-          this.state.tokenFarm.methods.stakeTokens(step).send({ from: this.state.account }).on('transactionHash', (hash) => {
+      case 'transport':
+        this.state.sampleTransportToken.methods.approve(sender, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
+          this.state.sampleTransportToken.methods.transfer(sender, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
             this.setState({ loading: false })
           })
         });
         break;
-      case '2':
-        this.state.sampleUnboxingToken.methods.approve(this.state.tokenFarm._address, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-          this.state.tokenFarm.methods.stakeTokens(step).send({ from: this.state.account }).on('transactionHash', (hash) => {
+      case 'unboxing':
+        this.state.sampleUnboxingToken.methods.approve(sender, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
+          this.state.sampleUnboxingToken.methods.transfer(sender, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
             this.setState({ loading: false })
           })
         });
         break;
-      case '3':
-        this.state.sampleAnalysisToken.methods.approve(this.state.tokenFarm._address, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-          this.state.tokenFarm.methods.stakeTokens(step).send({ from: this.state.account }).on('transactionHash', (hash) => {
+      case 'analysis':
+        this.state.sampleAnalysisToken.methods.approve(sender, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
+          this.state.sampleAnalysisToken.methods.transfer(sender, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
             this.setState({ loading: false })
           })
         });
         break;
-      case '4':
-        this.state.sampleReadyToken.methods.approve(this.state.tokenFarm._address, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
-          this.state.tokenFarm.methods.stakeTokens(step).send({ from: this.state.account }).on('transactionHash', (hash) => {
+      case 'done':
+        this.state.sampleReadyToken.methods.approve(sender, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
+          this.state.sampleReadyToken.methods.transfer(sender, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
             this.setState({ loading: false })
           })
         });
@@ -176,12 +177,6 @@ class App extends Component {
       content = <p id="loader" className="text-center">Loading...</p>
     } else {
       content = <Main
-        sampleExtTokenBalance={this.state.sampleExtTokenBalance}
-        sampleTransportTokenBalance={this.state.sampleTransportTokenBalance}
-        sampleUnboxingTokenBalance={this.state.sampleUnboxingTokenBalance}
-        sampleAnalysisTokenBalance={this.state.sampleAnalysisTokenBalance}
-        sampleReadyTokenBalance={this.state.sampleReadyTokenBalance}
-        tokenFarm={this.state.tokenFarm}
         stakeTokens={this.stakeTokens}
       />
     }
@@ -191,7 +186,7 @@ class App extends Component {
         <Navbar account={this.state.account} />
         <div className="container-fluid mt-5">
           <div className="row">
-            <main role="main" className="col-lg-12 ml-auto mr-auto" style={{ maxWidth: '600px' }}>
+            <main role="main" className="col-lg-12 ml-auto mr-auto hipra-main-box" style={{ maxWidth: '600px' }}>
               <div className="content mr-auto ml-auto">
                 <a
                   href="http://www.dappuniversity.com/bootcamp"

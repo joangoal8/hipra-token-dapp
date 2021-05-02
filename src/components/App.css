@@ -1,1 +1,28 @@
 /* Styles go here */
+input[type=image]:focus{
+    outline: 2px solid #00008B;     /* oranges! yey */
+}
+
+.hipra-background {
+    background-color: #00008B;
+}
+
+.hipra-app-title {
+    color: white;
+    font-size: 21px;
+}
+
+.hipra-main-box {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.account-address {
+    color: darkgoldenrod;
+}
+
+.hipra-btn-primary {
+    color: #fff;
+    background-color: #00008B;
+    border-color: #00008B;
+}

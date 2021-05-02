@@ -4,6 +4,7 @@ contract DappSampleToken {
 
     uint256 public totalSupply = 1000000000000000000000000; // 1 million tokens
     uint8 public decimals = 18;
+    address public owner;
 
     event Transfer(
         address indexed _from,
@@ -21,10 +22,12 @@ contract DappSampleToken {
     mapping(address => mapping(address => uint256)) public allowance;
 
     constructor() public {
+        owner = msg.sender;
         balanceOf[msg.sender] = totalSupply;
     }
 
     function transfer(address _to, uint256 _value) public returns (bool success) {
+        require(msg.sender == owner);
         require(balanceOf[msg.sender] >= _value);
         balanceOf[msg.sender] -= _value;
         balanceOf[_to] += _value;
@@ -39,6 +42,7 @@ contract DappSampleToken {
     }
 
     function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
+        require(msg.sender == owner);
         require(_value <= balanceOf[_from]);
         require(_value <= allowance[_from][msg.sender]);
         balanceOf[_from] -= _value;

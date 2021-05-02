@@ -1,32 +1,24 @@
 import React, { Component } from 'react'
-import dai from '../dai.png'
+import hipraInputLogo from '../hypra_input_logo_sm.png'
+import bloodSampleImg from '../blood_sample.png'
+import transportImg from '../transport.png'
+import unboxingImg from '../unboxing.png'
+import analysisImg from '../laboratory.png'
+import doneImg from '../done.png'
 
 class Main extends Component {
 
+  optionSelected(e) {
+    this.setState({option: e.target.value})
+  }
+
   render() {
+      let option = "";
+      if (this.state != null && this.state.option) {
+          option = this.state.option;
+      }
     return (
       <div id="content" className="mt-3">
-
-        <table className="table table-borderless text-muted text-center">
-          <thead>
-            <tr>
-              <th scope="col">Sample Extracted</th>
-              <th scope="col">Sample in transport</th>
-              <th scope="col">Sample Delivered</th>
-              <th scope="col">Sample Analysed</th>
-              <th scope="col">Sample Finished</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{(this.props.sampleExtTokenBalance > 0) ? 'true' : 'false'}</td>
-              <td>{(this.props.sampleTransportTokenBalance > 0) ? 'true' : 'false'}</td>
-              <td>{(this.props.sampleUnboxingTokenBalance > 0) ? 'true' : 'false'}</td>
-              <td>{(this.props.sampleAnalysisTokenBalance > 0) ? 'true' : 'false'}</td>
-              <td>{(this.props.sampleReadyTokenBalance > 0) ? 'true' : 'false'}</td>
-            </tr>
-          </tbody>
-        </table>
 
         <div className="card mb-4" >
 
@@ -34,35 +26,58 @@ class Main extends Component {
 
             <form className="mb-3" onSubmit={(event) => {
                 event.preventDefault();
-                let step;
-                step = this.input.value.toString();
-                this.props.stakeTokens(step)
+                let sender;
+                let optionSelected;
+                sender = this.input.value.toString();
+                optionSelected = this.state.option;
+                if(sender && optionSelected) {
+                    this.props.stakeTokens(sender, optionSelected);
+                } else {
+                    window.alert('You need to fill the text field and select the step')
+                }
               }}>
               <div>
-                <label className="float-left"><b>Add Step</b></label>
+                <label className="float-left"><b>Add Sender</b></label>
               </div>
               <div className="input-group mb-4">
                 <input
                   type="text"
                   ref={(input) => { this.input = input }}
                   className="form-control form-control-lg"
-                  placeholder="0"
+                  placeholder="0x0"
                   required />
                 <div className="input-group-append">
                   <div className="input-group-text">
-                    <img src={dai} height='32' alt=""/>
-                    &nbsp;&nbsp;&nbsp; mDAI
+                    <img src={hipraInputLogo} height='32' alt=""/>
+                    &nbsp;&nbsp;&nbsp; Hipra Tracker
                   </div>
                 </div>
               </div>
-              <button type="submit" className="btn btn-primary btn-block btn-lg">Save Step</button>
+              <div>
+                  <label>
+                      <input type="image"style={(option === "extraction") ? {outline: '2px solid #00008B'} : {outline :'none'}}
+                             ref="step" value="extraction" alt="" src={bloodSampleImg} onClick={this.optionSelected.bind(this)}/>
+                  </label>
+                  <label>
+                      <input type="image" style={(option === "transport") ? {outline: '2px solid #00008B'} : {outline :'none'}}
+                             ref="step" value="transport" alt="" src={transportImg} onClick={this.optionSelected.bind(this)}/>
+                  </label>
+                  <label>
+                      <input type="image" style={(option === "unboxing") ? {outline: '2px solid #00008B'} : {outline :'none'}}
+                             ref="step" value="unboxing" alt="" src={unboxingImg} onClick={this.optionSelected.bind(this)}/>
+                  </label>
+                  <label>
+                      <input type="image" style={(option === "analysis") ? {outline: '2px solid #00008B'} : {outline :'none'}}
+                             ref="step" value="analysis" alt="" src={analysisImg} onClick={this.optionSelected.bind(this)}/>
+                  </label>
+                  <label>
+                      <input type="image" style={(option === "done") ? {outline: '2px solid #00008B'} : {outline :'none'}}
+                             ref="step" value="done" alt="" src={doneImg} onClick={this.optionSelected.bind(this)}/>
+                  </label>
+              </div>
+              <button type="submit" className="btn hipra-btn-primary btn-block btn-lg">Save Step</button>
             </form>
           </div>
-        </div>
-        <div className="btn-group" role="group" aria-label="Basic mixed styles example">
-            <button type="button" className="btn btn-danger">Left</button>
-            <button type="button" className="btn btn-warning">Middle</button>
-            <button type="button" className="btn btn-success">Right</button>
         </div>
       </div>
     );
