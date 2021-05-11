@@ -6,7 +6,7 @@ import "./ERC165.sol";
 import "./IERC721.sol";
 import "./IERC721Receiver.sol";
 
-contract HipraToken is ERC165, IERC721 {
+contract HipraTokenFactory is ERC165, IERC721 {
 
     address Owner;
 
@@ -67,37 +67,44 @@ contract HipraToken is ERC165, IERC721 {
         delete admins[_address];
     }
 
-    modifier onlyAdmin(){ //Only the admins can access
+    //Only the admins can access
+    modifier onlyAdmin(){
         require(admins[msg.sender]);
         _;
     }
 
-    function addController(address _address) public onlyAdmin { //Set controler permissions
+    //Set controllers permissions
+    function addController(address _address) public onlyAdmin {
         require(!controllers[_address]);
         controllers[_address] = true;
     }
 
-    modifier onlyController() { //only the controlers can access
+    //only the controllers can access
+    modifier onlyController() {
         require(controllers[msg.sender]);
         _;
     }
 
-    function addResearcher(address _address) public onlyAdmin { //Set researcher permissions
+    //Set researcher permissions
+    function addResearcher(address _address) public onlyAdmin {
         require(!researchers[_address]);
         researchers[_address] = true;
     }
 
-    modifier onlyResearcher() { //Only the researchers can access
+    //Only the researchers can access
+    modifier onlyResearcher() {
         require(researchers[msg.sender]);
         _;
     }
 
-    function setSample(address _id) public { //Link the sample with the patient
+    //Link the sample with the patient
+    function setSample(address _id) public {
         _samplePatient[_id] = msg.sender;
         _sampleIsValid[_id] = true;
     }
 
-    function setControlCheck(address _id, bool _is_valid, string memory _description, uint256 _temperature, uint256 _humidity, uint256 _brightness) public onlyController { //Controller create a token and send to the sample owner
+    //Controller create a token and send to the sample owner
+    function setControlCheck(address _id, bool _is_valid, string memory _description, uint256 _temperature, uint256 _humidity, uint256 _brightness) public onlyController {
         require(_sampleIsValid[_id]);
         ControlCheck memory c;
 
@@ -126,7 +133,8 @@ contract HipraToken is ERC165, IERC721 {
         }
     }
 
-    function setResults(address _id, string memory _description, string memory _result) public onlyResearcher { //Researcher create a token and send to the sample owner
+    //Researcher create a token and send to the sample owner
+    function setResults(address _id, string memory _description, string memory _result) public onlyResearcher {
         require(_sampleIsValid[_id]);
         Result memory r;
 
@@ -143,38 +151,48 @@ contract HipraToken is ERC165, IERC721 {
         tokenCounter++;
     }
 
-    function getSampleValidation(address _id) public view onlyAdmin returns(bool, address){ //The admins know if the sample is valid and the address of the patient
+    //The admins know if the sample is valid and the address of the patient
+    function getSampleValidation(address _id) public view onlyAdmin returns(bool, address){
         return (_sampleIsValid[_id], _samplePatient[_id]);
     }
 
-    function getErrorTokenInfo(uint256 _tokenId) public view onlyAdmin returns(address){ //Get the sample address of the token
+    //Get the sample address of the token
+    function getErrorTokenInfo(uint256 _tokenId) public view onlyAdmin returns(address){
         require(_owners[_tokenId] == Owner);
         return _tokenErrorData[_tokenId];
     }
 
-    function getErrorTokens() public view onlyAdmin returns(uint256[] memory){ //Get the list of error tokens
+    //Get the list of error tokens
+    function getErrorTokens() public view onlyAdmin returns(uint256[] memory){
         return _sampleErrorTokens;
     }
 
-    function getControlTokenInfo(uint256 _tokenId) public view returns(ControlCheck memory){ //Get the control info by tokenId
-        require(_owners[_tokenId] == msg.sender);
+    //Get the control info by tokenId
+    //Sender could be avoided with msg.sender. However it is added because of javascript call()
+    function getControlTokenInfo(address _sender, uint256 _tokenId) public view returns(ControlCheck memory){
+        require(_owners[_tokenId] ==  _sender);
         return _tokenControlData[_tokenId];
     }
 
-    function getMyControlTokens() public view returns(uint256[] memory){ //Get the list of control tokens
-        return _patientControlTokens[msg.sender];
+    //Get the list of control tokens
+    //Sender could be avoided with msg.sender. However it is added because of javascript call()
+    function getMyControlTokens(address _sender) public view returns(uint256[] memory){
+        return _patientControlTokens[_sender];
     }
 
-    function getResultTokenInfo(uint256 _tokenId) public view returns(Result memory){ //Get the result info by tokenid
-        require(_owners[_tokenId] == msg.sender);
+    //Get the result info by tokenid
+    //Sender could be avoided with msg.sender. However it is added because of javascript call()
+    function getResultTokenInfo(address _sender, uint256 _tokenId) public view returns(Result memory){
+        require(_owners[_tokenId] == _sender);
         return _tokenResultData[_tokenId];
     }
 
-    function getMyResultToken() public view returns(uint256){ //Get the result token
-        return _patientResultToken[msg.sender];
+    //Get the result token
+    function getMyResultToken(address _sender) public view returns(uint256){
+        return _patientResultToken[_sender];
     }
 
-    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC165, IERC165) returns (bool){
+    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC165, IERC165) returns (bool) {
         return interfaceId == type(IERC721).interfaceId || super.supportsInterface(interfaceId);
     }
 

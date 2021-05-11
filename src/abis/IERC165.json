@@ -1,0 +1,293 @@
+{
+  "contractName": "IERC165",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/joangomezalvarez/Desktop/Joan/whatelse/repository/own/hipra-token-dapp/src/contracts/IERC165.sol\":\"IERC165\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/joangomezalvarez/Desktop/Joan/whatelse/repository/own/hipra-token-dapp/src/contracts/IERC165.sol\":{\"keccak256\":\"0xa2426b74fc5d9014b0b9511d19d1804e152992ea92d50a31858b979d07c69940\",\"urls\":[\"bzz-raw://c16b509881ab484f212e79ed54f3cbe5e131666456ec17f8b53474ea5ba8bc65\",\"dweb:/ipfs/QmZjiCHUKtZvJ9RygkKEJJtVuZ4xcbugMRnUW931tqg2Ma\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.8.0;\n\ninterface IERC165 {\n    function supportsInterface(bytes4 interfaceId) external view returns (bool);\n}",
+  "sourcePath": "/Users/joangomezalvarez/Desktop/Joan/whatelse/repository/own/hipra-token-dapp/src/contracts/IERC165.sol",
+  "ast": {
+    "absolutePath": "/Users/joangomezalvarez/Desktop/Joan/whatelse/repository/own/hipra-token-dapp/src/contracts/IERC165.sol",
+    "exportedSymbols": {
+      "IERC165": [
+        848
+      ]
+    },
+    "id": 849,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 840,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:2"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 848,
+        "linearizedBaseContracts": [
+          848
+        ],
+        "name": "IERC165",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "01ffc9a7",
+            "id": 847,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "supportsInterface",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 843,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 842,
+                  "mutability": "mutable",
+                  "name": "interfaceId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 847,
+                  "src": "76:18:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "typeName": {
+                    "id": 841,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "76:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "75:20:2"
+            },
+            "returnParameters": {
+              "id": 846,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 845,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 847,
+                  "src": "119:4:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 844,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "119:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "118:6:2"
+            },
+            "scope": 848,
+            "src": "49:76:2",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 849,
+        "src": "25:102:2"
+      }
+    ],
+    "src": "0:127:2"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/joangomezalvarez/Desktop/Joan/whatelse/repository/own/hipra-token-dapp/src/contracts/IERC165.sol",
+    "exportedSymbols": {
+      "IERC165": [
+        848
+      ]
+    },
+    "id": 849,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 840,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:2"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 848,
+        "linearizedBaseContracts": [
+          848
+        ],
+        "name": "IERC165",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "01ffc9a7",
+            "id": 847,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "supportsInterface",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 843,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 842,
+                  "mutability": "mutable",
+                  "name": "interfaceId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 847,
+                  "src": "76:18:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "typeName": {
+                    "id": 841,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "76:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "75:20:2"
+            },
+            "returnParameters": {
+              "id": 846,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 845,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 847,
+                  "src": "119:4:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 844,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "119:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "118:6:2"
+            },
+            "scope": 848,
+            "src": "49:76:2",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 849,
+        "src": "25:102:2"
+      }
+    ],
+    "src": "0:127:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2021-05-11T18:13:51.262Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

@@ -1,0 +1,414 @@
+{
+  "contractName": "IERC721",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/joangomezalvarez/Desktop/Joan/whatelse/repository/own/hipra-token-dapp/src/contracts/IERC721.sol\":\"IERC721\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/joangomezalvarez/Desktop/Joan/whatelse/repository/own/hipra-token-dapp/src/contracts/IERC165.sol\":{\"keccak256\":\"0xa2426b74fc5d9014b0b9511d19d1804e152992ea92d50a31858b979d07c69940\",\"urls\":[\"bzz-raw://c16b509881ab484f212e79ed54f3cbe5e131666456ec17f8b53474ea5ba8bc65\",\"dweb:/ipfs/QmZjiCHUKtZvJ9RygkKEJJtVuZ4xcbugMRnUW931tqg2Ma\"]},\"/Users/joangomezalvarez/Desktop/Joan/whatelse/repository/own/hipra-token-dapp/src/contracts/IERC721.sol\":{\"keccak256\":\"0x05b01a28de14e234a163353933e360b10754d5bdb10428c8b798b408128b7869\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://839978a7690670f0927bddf9ddc1283ac6bc9b9eaf8ed694656b16d760259f74\",\"dweb:/ipfs/QmTok3yzHb9FQg46W5bkYkMAEt45Xx2MiSfYV7sqrnhBax\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport \"./IERC165.sol\";\n\ninterface IERC721 is IERC165 {\n    event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);\n}",
+  "sourcePath": "/Users/joangomezalvarez/Desktop/Joan/whatelse/repository/own/hipra-token-dapp/src/contracts/IERC721.sol",
+  "ast": {
+    "absolutePath": "/Users/joangomezalvarez/Desktop/Joan/whatelse/repository/own/hipra-token-dapp/src/contracts/IERC721.sol",
+    "exportedSymbols": {
+      "IERC165": [
+        848
+      ],
+      "IERC721": [
+        862
+      ]
+    },
+    "id": 863,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 850,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:3"
+      },
+      {
+        "absolutePath": "/Users/joangomezalvarez/Desktop/Joan/whatelse/repository/own/hipra-token-dapp/src/contracts/IERC165.sol",
+        "file": "./IERC165.sol",
+        "id": 851,
+        "nodeType": "ImportDirective",
+        "scope": 863,
+        "sourceUnit": 849,
+        "src": "57:23:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 852,
+              "name": "IERC165",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 848,
+              "src": "103:7:3"
+            },
+            "id": 853,
+            "nodeType": "InheritanceSpecifier",
+            "src": "103:7:3"
+          }
+        ],
+        "contractDependencies": [
+          848
+        ],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 862,
+        "linearizedBaseContracts": [
+          862,
+          848
+        ],
+        "name": "IERC721",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "id": 861,
+            "name": "Transfer",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 860,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 855,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "from",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 861,
+                  "src": "132:20:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 854,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "132:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 857,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 861,
+                  "src": "154:18:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 856,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "154:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 859,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 861,
+                  "src": "174:23:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 858,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "174:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "131:67:3"
+            },
+            "src": "117:82:3"
+          }
+        ],
+        "scope": 863,
+        "src": "82:119:3"
+      }
+    ],
+    "src": "32:169:3"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/joangomezalvarez/Desktop/Joan/whatelse/repository/own/hipra-token-dapp/src/contracts/IERC721.sol",
+    "exportedSymbols": {
+      "IERC165": [
+        848
+      ],
+      "IERC721": [
+        862
+      ]
+    },
+    "id": 863,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 850,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:3"
+      },
+      {
+        "absolutePath": "/Users/joangomezalvarez/Desktop/Joan/whatelse/repository/own/hipra-token-dapp/src/contracts/IERC165.sol",
+        "file": "./IERC165.sol",
+        "id": 851,
+        "nodeType": "ImportDirective",
+        "scope": 863,
+        "sourceUnit": 849,
+        "src": "57:23:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 852,
+              "name": "IERC165",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 848,
+              "src": "103:7:3"
+            },
+            "id": 853,
+            "nodeType": "InheritanceSpecifier",
+            "src": "103:7:3"
+          }
+        ],
+        "contractDependencies": [
+          848
+        ],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 862,
+        "linearizedBaseContracts": [
+          862,
+          848
+        ],
+        "name": "IERC721",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "id": 861,
+            "name": "Transfer",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 860,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 855,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "from",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 861,
+                  "src": "132:20:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 854,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "132:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 857,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 861,
+                  "src": "154:18:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 856,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "154:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 859,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 861,
+                  "src": "174:23:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 858,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "174:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "131:67:3"
+            },
+            "src": "117:82:3"
+          }
+        ],
+        "scope": 863,
+        "src": "82:119:3"
+      }
+    ],
+    "src": "32:169:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2021-05-11T18:13:51.262Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

@@ -56,16 +56,18 @@ class Home extends Component {
                 description = this.state.description;
                 if(sender && optionSelected) {
                     if (optionSelected === 'analysis') {
-                        this.props.addResult(sender, optionSelected, description);
+                        let result;
+                        result = this.state.result;
+                        this.props.addResult(sender, description, result);
                     } else {
                         let temperature, humidity, brightness;
                         temperature = this.state.temperature;
                         humidity = this.state.humidity;
                         brightness = this.state.brightness;
                         if (temperature && humidity && brightness) {
-                            this.props.addControlCheck(sender, optionSelected, true, description, temperature, humidity, brightness);
+                            this.props.addControlCheck(sender, true, description, temperature, humidity, brightness);
                         } else {
-                            this.props.addControlCheck(sender, optionSelected, true, description);
+                            this.props.addControlCheck(sender, true, description);
                         }
                     }
                 } else {

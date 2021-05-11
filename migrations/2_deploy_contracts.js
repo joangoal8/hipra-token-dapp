@@ -1,7 +1,6 @@
-const HipraToken = artifacts.require('HipraToken');
+const HipraToken = artifacts.require('HipraTokenFactory');
 
-module.exports = async function(deployer, network, accounts) {
+module.exports = async function(deployer) {
   // Deploy HipraToken
   await deployer.deploy(HipraToken);
-  const hipraToken = await HipraToken.deployed();
 };
